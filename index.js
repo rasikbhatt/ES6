@@ -31,10 +31,11 @@ const addnumbers = (...numbers) => {
   for (i in numbers) {
     console.log(typeof numbers[i]);
     if (typeof numbers[i] === typeof addition) addition += numbers[i];
+    else continue;
   }
   return addition;
 };
-let sum = addnumbers(1, 2, 4, "3", 4);
+let sum = addnumbers(1, 2, 4, "3", 2);
 console.log(sum);
 
 //Destructuring objects
@@ -49,3 +50,44 @@ const { name: moviename, actor: moviecast, rating: movierating } = movies;
 console.log(`Movie Name: ${moviename}`); //string concatenation in ES6(Template Literal)
 console.log(`Movie Cast: ${moviecast}`);
 console.log(`Movie Rating: ${movierating}`);
+
+const another = { ...movies };
+//Slice and splice
+
+// Slice
+const fruits = ["apple ", "mango", "kiwi", "banana"];
+console.log(fruits.slice(2));
+
+//Splice
+fruits.splice(2, 0, "grapes", "pineapple");
+console.log(fruits);
+
+//Array helper methods
+// find()  foreach() map() filter() reduce()
+
+//find(): returns the value of the first array element that passes the test function
+
+const students = [
+  { name: "Rasik", id: 121 },
+  { name: "aamir", id: 321 },
+  { name: "Raquib", id: 333 },
+];
+let student = students.find((student) => student.name === "Rasik");
+console.log(student);
+
+// foreach(): accept a function iterator that loop through each item in an array
+
+students.forEach((student) => console.log(student));
+fruits.forEach((fruit) => console.log(fruit));
+
+//map(): returns the value of element in an array of objects
+
+student = students.map((student) => student.name);
+console.log(student);
+
+const person = { name: "allie", street: "23 NY", age: 12 };
+const showdata = () => {
+  for (i in person) console.log(`key is ${i} value is ${person[i]}`);
+};
+
+showdata();
